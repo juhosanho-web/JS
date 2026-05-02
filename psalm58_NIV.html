@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>시편 58편 — 영어 학습 (NIV)</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+KR:wght@300;400;500&family=Source+Serif+4:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8D08A;
+    --parchment: #F0F4F9;
+    --parchment-dark: #D8E2EE;
+    --ink: #0A1628;
+    --ink-soft: #1A2E4A;
+    --ink-muted: #4A6080;
+    --ink-faint: #8AA0BB;
+    --burgundy: #1E4A8B;
+    --teal-deep: #1A4A4A;
+    --cream: #F5F8FD;
+    --shadow: rgba(10,22,40,0.13);
+    --accent: #2563A8;
+    --accent-light: #7BAEDD;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: 'Source Serif 4', 'Noto Serif KR', serif;
+    min-height: 100vh; overflow-x: hidden;
+  }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 0%, rgba(37,99,168,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 90% 100%, rgba(201,168,76,0.06) 0%, transparent 60%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%232563A8' fill-opacity='0.035'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0;
+  }
+  .app { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+  /* Header */
+  header { text-align: center; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 2px solid rgba(37,99,168,0.25); position: relative; }
+  header::after { content: '✦'; position: absolute; bottom: -0.7rem; left: 50%; transform: translateX(-50%); background: var(--parchment); padding: 0 0.6rem; color: var(--accent); font-size: 14px; }
+  .header-label { font-family: 'Source Serif 4', serif; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; opacity: 0.75; }
+  .niv-badge { display: inline-block; background: var(--accent); color: #fff; font-family: 'Playfair Display', serif; font-size: 12px; letter-spacing: 0.15em; padding: 0.2rem 0.9rem; border-radius: 20px; margin-bottom: 0.75rem; }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem,5vw,2.6rem); font-weight: 700; color: var(--ink); line-height: 1.2; margin-bottom: 0.5rem; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .header-sub { font-size: 14px; color: var(--ink-muted); font-family: 'Noto Serif KR', serif; font-weight: 300; }
+
+  /* Tab Nav */
+  .tab-nav { display: flex; gap: 4px; background: var(--parchment-dark); padding: 4px; border-radius: 14px; margin-bottom: 2rem; border: 1px solid rgba(37,99,168,0.18); }
+  .tab-btn { flex: 1; padding: 0.6rem 0.5rem; border: none; background: transparent; border-radius: 10px; font-family: 'Noto Serif KR', serif; font-size: 13px; color: var(--ink-muted); cursor: pointer; transition: all 0.25s ease; font-weight: 400; }
+  .tab-btn.active { background: var(--cream); color: var(--ink); box-shadow: 0 2px 8px var(--shadow); font-weight: 500; }
+  .tab-btn:hover:not(.active) { color: var(--ink-soft); background: rgba(255,255,255,0.5); }
+
+  /* Panels */
+  .panel { display: none; animation: fadeIn 0.35s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from {opacity:0;transform:translateY(8px);} to {opacity:1;transform:translateY(0);} }
+
+  /* Verse Card */
+  .verse-card { background: var(--cream); border: 1px solid rgba(37,99,168,0.22); border-radius: 20px; padding: 2rem 2rem 1.75rem; position: relative; margin-bottom: 1.5rem; box-shadow: 0 4px 24px var(--shadow); }
+  .verse-card::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 80px; color: rgba(37,99,168,0.15); position: absolute; top: -10px; left: 18px; line-height: 1; }
+  .verse-ref { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; font-family: 'Source Serif 4', serif; opacity: 0.85; }
+  .verse-en { font-family: 'Source Serif 4', serif; font-size: 16px; line-height: 2; color: var(--ink-soft); margin-bottom: 1.25rem; font-weight: 400; }
+  .verse-en strong { color: var(--accent); font-weight: 700; }
+  .verse-num { font-size: 11px; font-weight: 700; color: var(--accent); vertical-align: super; margin-right: 2px; font-family: 'Source Serif 4', serif; opacity: 0.7; }
+  .verse-ko { font-family: 'Noto Serif KR', serif; font-size: 13.5px; line-height: 2; color: var(--ink-muted); border-top: 1px solid rgba(37,99,168,0.15); padding-top: 1rem; font-weight: 300; }
+  .memo-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(37,99,168,0.08); color: var(--accent); font-size: 12px; padding: 0.35rem 0.85rem; border-radius: 20px; margin-top: 1rem; font-family: 'Noto Serif KR', serif; border: 1px solid rgba(37,99,168,0.15); }
+
+  /* TTS Bar */
+  .tts-bar { display: flex; align-items: center; gap: 10px; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid rgba(37,99,168,0.15); flex-wrap: wrap; }
+  .tts-btn { display: inline-flex; align-items: center; gap: 6px; padding: 0.45rem 1rem; border-radius: 20px; border: 1px solid rgba(37,99,168,0.3); background: rgba(37,99,168,0.06); color: var(--accent); font-family: 'Noto Serif KR', serif; font-size: 12.5px; cursor: pointer; transition: all 0.2s ease; font-weight: 400; }
+  .tts-btn:hover { background: rgba(37,99,168,0.14); border-color: var(--accent); color: var(--ink-soft); }
+  #btnStop { border-color: rgba(107,30,42,0.22); background: rgba(107,30,42,0.04); color: var(--ink-faint); }
+  #btnStop:hover { background: rgba(107,30,42,0.1); border-color: #6B1E2A; color: #6B1E2A; }
+  .tts-btn.playing { background: rgba(107,30,42,0.1); border-color: #6B1E2A; color: #6B1E2A; font-weight: 500; }
+  #btnLoop.loop-on { background: rgba(26,74,74,0.12); border-color: var(--teal-deep); color: var(--teal-deep); font-weight: 500; }
+  .loop-count-wrap { display: none; align-items: center; gap: 4px; font-family: 'Noto Serif KR', serif; font-size: 12px; }
+  .loop-label { color: var(--ink-faint); }
+  .loop-counter { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--teal-deep); min-width: 20px; text-align: center; }
+
+  /* Section Heading */
+  .section-heading { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
+  .section-heading h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--ink); }
+  .section-icon { width: 32px; height: 32px; border-radius: 50%; background: rgba(37,99,168,0.1); display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; border: 1px solid rgba(37,99,168,0.2); }
+  .hint-text { font-size: 12px; color: var(--ink-faint); font-family: 'Noto Serif KR', serif; margin-bottom: 1rem; font-weight: 300; }
+
+  /* Word Cards */
+  .words-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px,1fr)); gap: 12px; }
+  .word-card { background: var(--cream); border: 1px solid rgba(37,99,168,0.18); border-radius: 16px; padding: 1.1rem 1.25rem; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(10,22,40,0.06); position: relative; overflow: hidden; }
+  .word-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-light)); opacity: 0; transition: opacity 0.2s; }
+  .word-card:hover { border-color: rgba(37,99,168,0.4); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(10,22,40,0.1); }
+  .word-card:hover::after, .word-card.open::after { opacity: 1; }
+  .word-card.open { border-color: rgba(37,99,168,0.4); background: #F5F8FF; }
+  .word-num { font-size: 10px; color: var(--accent); font-family: 'Source Serif 4', serif; letter-spacing: 0.1em; margin-bottom: 2px; opacity: 0.6; }
+  .word-en { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+  .word-pos { font-size: 10.5px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; font-family: 'Source Serif 4', serif; opacity: 0.75; }
+  .word-ko { font-family: 'Noto Serif KR', serif; font-size: 13px; color: var(--ink-soft); font-weight: 400; margin-bottom: 4px; }
+  .word-expand { font-size: 11px; color: var(--ink-faint); font-family: 'Noto Serif KR', serif; }
+  .word-example { display: none; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(37,99,168,0.15); font-family: 'Source Serif 4', serif; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; font-weight: 400; }
+  .word-example-ko { font-family: 'Noto Serif KR', serif; font-size: 12px; color: var(--ink-faint); margin-top: 4px; font-weight: 300; }
+  .word-card.open .word-example { display: block; }
+  .word-card.open .word-expand { display: none; }
+  .word-speak-btn { display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; padding: 0.3rem 0.7rem; border-radius: 12px; border: 1px solid rgba(37,99,168,0.28); background: transparent; color: var(--accent); font-size: 11.5px; cursor: pointer; transition: all 0.2s; font-family: 'Noto Serif KR', serif; opacity: 0.8; }
+  .word-speak-btn:hover { background: rgba(37,99,168,0.1); opacity: 1; }
+  .word-speak-btn.playing { color: #6B1E2A; border-color: #6B1E2A; background: rgba(107,30,42,0.07); opacity: 1; }
+
+  /* Phrasal Cards */
+  .phrasal-list { display: flex; flex-direction: column; gap: 14px; }
+  .phrasal-card { background: var(--cream); border: 1px solid rgba(37,99,168,0.18); border-radius: 16px; padding: 1.25rem 1.5rem; display: grid; grid-template-columns: auto 1fr; gap: 0 1.25rem; align-items: start; box-shadow: 0 2px 8px rgba(10,22,40,0.06); transition: all 0.2s ease; }
+  .phrasal-card:hover { border-color: rgba(37,99,168,0.35); box-shadow: 0 6px 20px rgba(10,22,40,0.1); }
+  .phrasal-num { font-family: 'Playfair Display', serif; font-size: 28px; color: rgba(37,99,168,0.25); font-weight: 700; line-height: 1; padding-top: 2px; min-width: 30px; }
+  .phrasal-verb { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--teal-deep); margin-bottom: 3px; }
+  .phrasal-meaning { font-size: 12px; letter-spacing: 0.1em; color: var(--accent); text-transform: uppercase; font-family: 'Source Serif 4', serif; margin-bottom: 10px; opacity: 0.8; }
+  .phrasal-example { font-family: 'Source Serif 4', serif; font-size: 14px; color: var(--ink-soft); line-height: 1.75; margin-bottom: 5px; font-weight: 400; }
+  .phrasal-example em { font-style: normal; font-weight: 700; color: var(--teal-deep); border-bottom: 1.5px solid rgba(26,74,74,0.3); }
+  .phrasal-ko { font-family: 'Noto Serif KR', serif; font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; font-weight: 300; }
+  .phrasal-speak-btn { display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; padding: 0.3rem 0.75rem; border-radius: 12px; border: 1px solid rgba(26,74,74,0.22); background: transparent; color: var(--teal-deep); font-size: 11.5px; cursor: pointer; transition: all 0.2s; font-family: 'Noto Serif KR', serif; opacity: 0.72; }
+  .phrasal-speak-btn:hover { opacity: 1; background: rgba(26,74,74,0.07); }
+  .phrasal-speak-btn.playing { opacity: 1; background: rgba(26,74,74,0.12); }
+
+  /* Learn Box */
+  .learn-box { background: var(--cream); border: 1px solid rgba(37,99,168,0.18); border-radius: 16px; padding: 1.25rem 1.5rem; box-shadow: 0 2px 8px rgba(10,22,40,0.06); font-family: 'Noto Serif KR', serif; font-size: 14px; color: var(--ink-soft); line-height: 2.1; font-weight: 300; }
+  .learn-box strong { color: var(--ink); font-weight: 500; }
+  .learn-box span.hl { color: var(--accent); font-weight: 400; }
+
+  /* Footer */
+  footer { text-align: center; margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(37,99,168,0.15); }
+  .footer-ornament { font-family: 'Playfair Display', serif; font-size: 22px; color: rgba(37,99,168,0.3); letter-spacing: 0.3em; margin-bottom: 0.5rem; }
+  .footer-text { font-size: 12px; color: var(--ink-faint); font-family: 'Noto Serif KR', serif; font-weight: 300; }
+
+  /* Responsive */
+  @media (max-width: 520px) {
+    .app { padding: 1.5rem 1rem 3rem; }
+    .verse-card { padding: 1.5rem 1.25rem; }
+    h1 { font-size: 1.7rem; }
+    .words-grid { grid-template-columns: 1fr 1fr; }
+    .phrasal-card { grid-template-columns: 1fr; }
+    .phrasal-num { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <header>
+    <div class="header-label">Weekly Bible English Study · May 4, 2025</div>
+    <div class="niv-badge">NIV</div>
+    <h1>시편 <em>58편</em></h1>
+    <p class="header-sub">암송 · 어휘 10선 · 구동사 — 한 번에 마스터</p>
+  </header>
+
+  <nav class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('verse',this)">📖 암송 구절</button>
+    <button class="tab-btn" onclick="switchTab('words',this)">📚 핵심 단어</button>
+    <button class="tab-btn" onclick="switchTab('phrasal',this)">🔗 구동사</button>
+  </nav>
+
+  <!-- Panel 1: Verse -->
+  <div id="panel-verse" class="panel active">
+    <div class="verse-card">
+      <div class="verse-ref">Psalm 58:10–11 (NIV) — 이번 주 암송 구절</div>
+      <div class="verse-en">
+        <span class="verse-num">10</span>The <strong>righteous</strong> will be <strong>glad</strong> when they are <strong>avenged</strong>,<br>
+        when they <strong>dip</strong> their feet in the blood of the wicked.<br>
+        <span class="verse-num">11</span>Then people will say,<br>
+        "Surely the righteous still are <strong>rewarded</strong>;<br>
+        surely there is a God who <strong>judges</strong> the earth."
+      </div>
+      <div class="verse-ko">
+        <strong style="color:var(--accent);font-size:11px;opacity:0.7;">10</strong> 의인이 보복하심을 보고 기뻐함이여 그의 발을 악인의 피에 씻으리로다<br>
+        <strong style="color:var(--accent);font-size:11px;opacity:0.7;">11</strong> 그 때에 사람의 말이 진실로 의인에게 갚음이 있고 진실로 땅에서 심판하시는 하나님이 계시다 하리로다
+      </div>
+      <div class="tts-bar">
+        <button class="tts-btn" id="btnPlayFull" onclick="speakVerse(1.0)">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M8 5v14l11-7z"/></svg>전체 듣기
+        </button>
+        <button class="tts-btn" id="btnPlaySlow" onclick="speakVerse(0.72)">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M8 5v14l11-7z"/></svg>천천히 듣기
+        </button>
+        <button class="tts-btn" id="btnStop" onclick="stopSpeak()">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M6 6h12v12H6z"/></svg>멈추기
+        </button>
+        <button class="tts-btn" id="btnLoop" onclick="toggleLoop()">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>반복 OFF
+        </button>
+        <div class="loop-count-wrap" id="loopCountWrap">
+          <span class="loop-label">반복</span>
+          <span class="loop-counter" id="loopCounter">0</span>
+          <span class="loop-label">회</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <span class="memo-badge">✦ 강조 표시 단어 = 이번 주 핵심 어휘 10선</span>
+    </div>
+    <div style="margin-top:2rem;">
+      <div class="section-heading">
+        <div class="section-icon">💡</div>
+        <h2>학습 포인트</h2>
+      </div>
+      <div class="learn-box">
+        이 구절은 <strong>다윗</strong>이 악인들의 불의함을 고발하며, 하나님의 공의로운 심판을 확신하는 시편입니다.<br>
+        NIV는 ESV의 <span class="hl">rejoice(기뻐하다)</span> 대신 <strong>be glad(기뻐하다)</strong>를,
+        <span class="hl">vengeance</span> 대신 <strong>avenged(복수를 당할 때)</strong>를 사용해 더 구어적 표현을 씁니다.<br>
+        <strong>"Surely"</strong>가 두 번 반복되어 하나님의 공의에 대한 강한 확신을 강조하며, <strong>"still are rewarded"</strong>는 지금도 여전히 상급이 있음을 강조합니다.
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel 2: Words (10개) -->
+  <div id="panel-words" class="panel">
+    <div class="section-heading">
+      <div class="section-icon">📚</div>
+      <h2>시편 58편 핵심 단어 <span style="color:var(--accent);">10</span>선</h2>
+    </div>
+    <p class="hint-text">각 카드를 클릭하면 예문이 펼쳐집니다 · 🔊 버튼으로 발음을 확인하세요 ✦</p>
+    <div class="words-grid" id="wordsGrid"></div>
+  </div>
+
+  <!-- Panel 3: Phrasal Verbs -->
+  <div id="panel-phrasal" class="panel">
+    <div class="section-heading">
+      <div class="section-icon">🔗</div>
+      <h2>생활 구동사 5선</h2>
+    </div>
+    <p class="hint-text">시편 58편의 주제와 연결된 구동사 — 일상에서 바로 활용하세요</p>
+    <div class="phrasal-list" id="phrasalList"></div>
+  </div>
+
+  <footer>
+    <div class="footer-ornament">✦ ✦ ✦</div>
+    <p class="footer-text">시편 58편 영어 학습 카드 (NIV) · 매주 꾸준히 쌓아가는 말씀과 영어</p>
+  </footer>
+</div>
+
+<script>
+const VERSE_TEXT = "The righteous will be glad when they are avenged, when they dip their feet in the blood of the wicked. Then people will say, Surely the righteous still are rewarded; surely there is a God who judges the earth.";
+
+const uniqueWords = [
+  { en:"righteous", pos:"adjective", ko:"의로운 · 올바른", example:"Surely the righteous still are rewarded.", exampleKo:"분명히 의인은 여전히 상을 받는다. (NIV 58:11 직결)" },
+  { en:"glad", pos:"adjective", ko:"기쁜 · 기뻐하는", example:"The righteous will be glad when they are avenged.", exampleKo:"의인은 복수를 당할 때 기뻐할 것이다. (NIV 58:10 직결)" },
+  { en:"avenge", pos:"verb", ko:"복수하다 · 원수를 갚다", example:"The righteous will be glad when they are avenged.", exampleKo:"의인은 하나님이 원수를 갚아주실 때 기뻐한다. (NIV 58:10)" },
+  { en:"dip", pos:"verb", ko:"담그다 · 살짝 적시다", example:"When they dip their feet in the blood of the wicked.", exampleKo:"그들이 악인의 피에 발을 담글 때. (NIV 58:10 직결)" },
+  { en:"wicked", pos:"adjective / noun", ko:"악한 · 사악한 / 악인", example:"The wicked will face the full force of God's justice.", exampleKo:"악인들은 하나님의 정의의 심판을 온전히 맞이할 것이다." },
+  { en:"surely", pos:"adverb", ko:"분명히 · 틀림없이", example:"Surely the righteous still are rewarded on earth.", exampleKo:"분명히 의인은 이 땅에서 여전히 상을 받는다. (NIV 58:11)" },
+  { en:"reward", pos:"noun / verb", ko:"상 · 보상 / 보상하다", example:"Surely the righteous still are rewarded.", exampleKo:"분명히 의인은 여전히 상을 받는다. (NIV 58:11 직결)" },
+  { en:"judge", pos:"verb", ko:"심판하다 · 판단하다", example:"Surely there is a God who judges the earth.", exampleKo:"분명 이 땅을 심판하시는 하나님이 계신다. (NIV 58:11 직결)" },
+  { en:"still", pos:"adverb", ko:"여전히 · 아직도", example:"The righteous still are rewarded, even now.", exampleKo:"의인은 지금도 여전히 상을 받는다." },
+  { en:"people", pos:"noun", ko:"사람들 · 인류", example:"Then people will say, Surely there is a God who judges.", exampleKo:"그 때에 사람들이 말할 것이다, 심판하시는 하나님이 계신다고. (NIV 58:11)" }
+];
+
+const phrasals = [
+  { verb:"stand up for", meaning:"옹호하다 · 지지하다", en:"Always <em>stand up for</em> what is righteous, even when it is difficult.", ko:"의로운 것을 위해서라면 어려울 때도 항상 옹호하세요." },
+  { verb:"give in", meaning:"굴복하다 · 포기하다", en:"Do not <em>give in</em> to wickedness — the righteous will still be rewarded.", ko:"악함에 굴복하지 마세요 — 의인은 여전히 상을 받습니다." },
+  { verb:"carry out", meaning:"수행하다 · 집행하다", en:"God will <em>carry out</em> justice for the righteous in due time.", ko:"하나님은 때가 되면 의인을 위해 정의를 집행하실 것입니다." },
+  { verb:"look up to", meaning:"우러러보다 · 존경하다", en:"People will <em>look up to</em> God when they see His righteous judgment.", ko:"사람들은 하나님의 의로운 심판을 볼 때 그분을 우러러볼 것입니다." },
+  { verb:"hold on", meaning:"버티다 · 견디다", en:"<em>Hold on</em> to your faith — surely God still rewards the righteous.", ko:"믿음을 붙드세요 — 분명히 하나님은 여전히 의인에게 상을 주십니다." }
+];
+
+// ── TTS Engine ──
+let isLooping=false, loopCount=0, isSpeaking=false, currentRate=1.0;
+
+function getVoice() {
+  const voices=speechSynthesis.getVoices();
+  const en=voices.filter(v=>v.lang.startsWith('en')&&!v.lang.startsWith('ko'));
+  return en.find(v=>v.lang==='en-US'&&v.name.toLowerCase().includes('samantha'))
+    ||en.find(v=>v.lang==='en-US'&&v.name.toLowerCase().includes('karen'))
+    ||en.find(v=>v.lang==='en-US'&&v.name.toLowerCase().includes('google'))
+    ||en.find(v=>v.lang==='en-US')
+    ||en.find(v=>v.lang==='en-GB')
+    ||en[0]||null;
+}
+
+function speakVerse(rate) {
+  speechSynthesis.cancel();
+  currentRate=rate; isSpeaking=true;
+  const u=new SpeechSynthesisUtterance(VERSE_TEXT);
+  u.lang='en-US'; u.rate=rate; u.pitch=1.05;
+  const v=getVoice(); if(v) u.voice=v;
+  document.getElementById('btnStop').classList.add('playing');
+  document.getElementById('btnPlayFull').classList.toggle('playing',rate>=1.0);
+  document.getElementById('btnPlaySlow').classList.toggle('playing',rate<1.0);
+  u.onend=()=>{
+    isSpeaking=false;
+    if(isLooping){
+      loopCount++;
+      document.getElementById('loopCounter').textContent=loopCount;
+      setTimeout(()=>{if(isLooping)speakVerse(currentRate);},800);
+    } else {
+      document.getElementById('btnStop').classList.remove('playing');
+      document.getElementById('btnPlayFull').classList.remove('playing');
+      document.getElementById('btnPlaySlow').classList.remove('playing');
+    }
+  };
+  speechSynthesis.speak(u);
+}
+
+function toggleLoop() {
+  isLooping=!isLooping;
+  const btn=document.getElementById('btnLoop');
+  const wrap=document.getElementById('loopCountWrap');
+  const icon=`<svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>`;
+  if(isLooping){
+    btn.classList.add('loop-on');
+    btn.innerHTML=icon+'반복 ON';
+    wrap.style.display='inline-flex';
+    if(!isSpeaking) speakVerse(currentRate);
+  } else {
+    btn.classList.remove('loop-on');
+    btn.innerHTML=icon+'반복 OFF';
+    wrap.style.display='none';
+    loopCount=0;
+    document.getElementById('loopCounter').textContent='0';
+  }
+}
+
+function stopSpeak() {
+  isLooping=false; isSpeaking=false; loopCount=0;
+  speechSynthesis.cancel();
+  ['btnStop','btnPlayFull','btnPlaySlow'].forEach(id=>document.getElementById(id).classList.remove('playing'));
+  document.querySelectorAll('.word-speak-btn,.phrasal-speak-btn').forEach(b=>b.classList.remove('playing'));
+  const btn=document.getElementById('btnLoop');
+  btn.classList.remove('loop-on');
+  btn.innerHTML=`<svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>반복 OFF`;
+  document.getElementById('loopCountWrap').style.display='none';
+  document.getElementById('loopCounter').textContent='0';
+}
+
+function speakText(text,btn,rate) {
+  isLooping=false; isSpeaking=false; speechSynthesis.cancel();
+  document.querySelectorAll('.word-speak-btn,.phrasal-speak-btn').forEach(b=>b.classList.remove('playing'));
+  ['btnPlayFull','btnPlaySlow','btnStop'].forEach(id=>document.getElementById(id).classList.remove('playing'));
+  document.getElementById('btnLoop').classList.remove('loop-on');
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang='en-US'; u.rate=rate||0.88; u.pitch=1.05;
+  const v=getVoice(); if(v) u.voice=v;
+  btn.classList.add('playing');
+  u.onend=()=>btn.classList.remove('playing');
+  speechSynthesis.speak(u);
+}
+
+speechSynthesis.getVoices();
+window.speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
+
+const SPEAKER_SVG=`<svg viewBox="0 0 24 24" fill="currentColor" style="width:12px;height:12px"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>`;
+const grid=document.getElementById('wordsGrid');
+uniqueWords.forEach((w,idx)=>{
+  const card=document.createElement('div');
+  card.className='word-card';
+  card.innerHTML=`
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;">
+      <div>
+        <div class="word-num">${String(idx+1).padStart(2,'0')}</div>
+        <div class="word-en">${w.en}</div>
+        <div class="word-pos">${w.pos}</div>
+      </div>
+      <button class="word-speak-btn" onclick="event.stopPropagation();speakText('${w.en}',this,0.82)">${SPEAKER_SVG}듣기</button>
+    </div>
+    <div class="word-ko">${w.ko}</div>
+    <div class="word-expand">탭하여 예문 보기 ↓</div>
+    <div class="word-example">
+      ${w.example}
+      <div class="word-example-ko">${w.exampleKo}</div>
+      <button class="word-speak-btn" style="margin-top:10px;" onclick="event.stopPropagation();speakText('${w.example}',this,0.82)">${SPEAKER_SVG}예문 듣기</button>
+    </div>`;
+  card.addEventListener('click',()=>card.classList.toggle('open'));
+  grid.appendChild(card);
+});
+
+const list=document.getElementById('phrasalList');
+phrasals.forEach((p,i)=>{
+  const plain=p.en.replace(/<[^>]+>/g,'');
+  const card=document.createElement('div');
+  card.className='phrasal-card';
+  card.innerHTML=`
+    <div class="phrasal-num">0${i+1}</div>
+    <div class="phrasal-body">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <div class="phrasal-verb">${p.verb}</div>
+        <button class="phrasal-speak-btn" onclick="speakText('${p.verb}',this,0.80)">${SPEAKER_SVG}듣기</button>
+      </div>
+      <div class="phrasal-meaning">${p.meaning}</div>
+      <div class="phrasal-example">${p.en}</div>
+      <div class="phrasal-ko">${p.ko}</div>
+      <button class="phrasal-speak-btn" onclick="speakText('${plain}',this,0.85)">${SPEAKER_SVG}예문 듣기</button>
+    </div>`;
+  list.appendChild(card);
+});
+
+function switchTab(name,btn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('panel-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
