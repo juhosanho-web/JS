@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>First Presbyterian Church of Korea — Bulletin · May 10, 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #E8E4DE;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    .bulletin-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+      max-width: 780px;
+      border: 2px solid #111;
+      font-family: 'EB Garamond', Georgia, serif;
+      background: #fff;
+      color: #111;
+      box-shadow: 0 6px 32px rgba(0,0,0,0.18);
+    }
+
+    .page { padding: 2.2rem 2rem; }
+    .page-left { border-right: 1px solid #333; background: #fff; }
+    .page-right { background: #fafafa; }
+
+    /* Header */
+    .cross-emblem { text-align: center; margin-bottom: 0.5rem; }
+    .cross-emblem svg { width: 38px; height: 38px; }
+
+    .church-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-align: center;
+      color: #111;
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .motto {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 12px;
+      text-align: center;
+      color: #333;
+      margin-bottom: 0.15rem;
+    }
+
+    .contact {
+      font-size: 10.5px;
+      text-align: center;
+      color: #555;
+      margin-bottom: 0.9rem;
+    }
+
+    .badge-wrap { text-align: center; margin-bottom: 0.6rem; }
+    .label-2026 {
+      display: inline-block;
+      background: #111; color: #fff;
+      font-size: 9px; letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 2px 10px; border-radius: 2px;
+    }
+
+    .thick-rule { border: none; border-top: 1.5px solid #111; margin: 0.45rem 0; }
+    .thin-rule  { border: none; border-top: 0.5px solid #888; margin: 0.45rem 0; }
+    .divider-ornament { text-align: center; font-size: 14px; margin: 0.3rem 0; letter-spacing: 0.25em; color: #444; }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 600;
+      text-align: center;
+      color: #111;
+      margin: 0.25rem 0;
+      letter-spacing: 0.04em;
+    }
+
+    .service-date-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #444;
+      margin: 0.4rem 0 1.1rem;
+      border-bottom: 0.5px solid #888;
+      padding-bottom: 0.4rem;
+    }
+
+    /* Order table */
+    .order-table { width: 100%; border-collapse: collapse; }
+    .order-table tr { border-bottom: 0.5px solid #DDD; }
+    .order-table tr:last-child { border-bottom: none; }
+    .order-table td { padding: 0.6rem 0.25rem; vertical-align: middle; font-size: 13px; }
+    .item-name   { font-weight: 600; color: #111; width: 37%; }
+    .item-detail { color: #333; font-style: italic; width: 43%; font-size: 12px; }
+    .item-who    { color: #555; text-align: right; width: 20%; font-size: 11px; }
+    .dots        { color: #BBB; font-size: 11px; letter-spacing: 0.05em; }
+
+    /* Right page */
+    .right-section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px; font-weight: 600;
+      color: #111; margin: 0 0 0.5rem;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      border-bottom: 1px solid #333; padding-bottom: 0.25rem;
+    }
+
+    .notice-block { margin-bottom: 1.25rem; }
+    .notice-text  { font-size: 12.5px; line-height: 1.8; color: #222; }
+
+    /* Offering */
+    .offering-box {
+      border: 0.5px solid #999; border-radius: 3px;
+      padding: 0.8rem 0.9rem; margin-bottom: 1.25rem;
+      background: #F4F4F4;
+    }
+    .offering-title {
+      font-size: 12px; font-weight: 600; color: #111;
+      text-transform: uppercase; letter-spacing: 0.09em;
+      margin-bottom: 0.5rem;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .offering-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      font-size: 12px; color: #222;
+      padding: 0.22rem 0; border-bottom: 0.5px solid #DDD;
+    }
+    .offering-row:last-child { border-bottom: none; }
+    .offering-label { color: #555; font-size: 11px; }
+    .offering-value { font-weight: 600; color: #111; letter-spacing: 0.02em; }
+
+    /* Sermon */
+    .sermon-box {
+      border-left: 3px solid #333; padding: 0.75rem 0.85rem;
+      margin-bottom: 1.1rem; background: #EFEFEF;
+      border-radius: 0 3px 3px 0;
+    }
+    .sermon-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: #555; margin-bottom: 0.2rem; }
+    .sermon-title { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 600; color: #111; margin-bottom: 0.35rem; }
+    .sermon-text  { font-size: 12px; line-height: 1.68; color: #333; font-style: italic; }
+
+    /* Hymn */
+    .hymn-section { margin-top: 0.8rem; }
+    .hymn-text { font-size: 12px; line-height: 1.78; color: #222; }
+    .hymn-text p { margin-bottom: 0.4rem; }
+
+    /* Footer */
+    .footer-note {
+      margin-top: 1.2rem; padding-top: 0.55rem;
+      border-top: 0.5px solid #888;
+      font-size: 10px; color: #666;
+      text-align: center; font-style: italic;
+    }
+
+    /* Print */
+    @media print {
+      body { background: #fff; padding: 0; }
+      .bulletin-wrap { box-shadow: none; max-width: 100%; border: 1px solid #000; }
+    }
+
+    @media (max-width: 600px) {
+      .bulletin-wrap { grid-template-columns: 1fr; }
+      .page-left { border-right: none; border-bottom: 1px solid #333; }
+      .church-name { white-space: normal; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="bulletin-wrap">
+
+  <!-- ══════════════ PAGE 1: Order of Worship ══════════════ -->
+  <div class="page page-left">
+
+    <div class="cross-emblem">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="15" y="4" width="6" height="28" fill="#111" rx="1"/>
+        <rect x="6" y="13" width="24" height="6" fill="#111" rx="1"/>
+      </svg>
+    </div>
+
+    <div class="church-name">First Presbyterian Church of Korea</div>
+    <div class="motto">"You follow me!" — John 21:22</div>
+    <div class="contact">juhosanho@gmail.com</div>
+
+    <div class="badge-wrap"><span class="label-2026">2026 Vision</span></div>
+
+    <hr class="thick-rule"/>
+    <div class="divider-ornament">✦ ✦ ✦</div>
+    <hr class="thin-rule"/>
+
+    <div class="section-title">Lord's Day Worship</div>
+    <div class="service-date-row">
+      <span>Sunday Service · 11:00 AM</span>
+      <span>May 10, 2026</span>
+    </div>
+
+    <table class="order-table">
+      <tr>
+        <td class="item-name">Ten Commandments</td>
+        <td class="item-detail dots">· · · · · · · · ·</td>
+        <td class="item-who">Pastor</td>
+      </tr>
+      <tr>
+        <td class="item-name">Hymn</td>
+        <td class="item-detail">
+          <em>Down at the Cross</em><br>
+          <span style="font-size:10px;color:#666;">Hymn #250</span>
+        </td>
+        <td class="item-who">Congregation</td>
+      </tr>
+      <tr>
+        <td class="item-name">Prayer</td>
+        <td class="item-detail dots">· · · · · · · · ·</td>
+        <td class="item-who">Leader</td>
+      </tr>
+      <tr>
+        <td class="item-name">Sermon</td>
+        <td class="item-detail">
+          <em>Psalm 126</em><br>
+          <span style="font-size:10px;color:#666;">Exposition of Psalms</span>
+        </td>
+        <td class="item-who">Pastor</td>
+      </tr>
+      <tr>
+        <td class="item-name">Offering</td>
+        <td class="item-detail dots">· · · · · · · · ·</td>
+        <td class="item-who">Congregation</td>
+      </tr>
+      <tr>
+        <td class="item-name">Hymn</td>
+        <td class="item-detail">
+          <em>Leaning, Leaning</em><br>
+          <span style="font-size:10px;color:#666;">Hymn #405</span>
+        </td>
+        <td class="item-who">Congregation</td>
+      </tr>
+      <tr>
+        <td class="item-name">Lord's Prayer</td>
+        <td class="item-detail dots">· · · · · · · · ·</td>
+        <td class="item-who">Together</td>
+      </tr>
+      <tr>
+        <td class="item-name">Benediction</td>
+        <td class="item-detail dots">· · · · · · · · ·</td>
+        <td class="item-who">Pastor</td>
+      </tr>
+    </table>
+
+    <div class="footer-note">"God is our refuge and strength." — Psalm 46:1</div>
+  </div>
+
+  <!-- ══════════════ PAGE 2: Notices & Summary ══════════════ -->
+  <div class="page page-right">
+
+    <div class="notice-block">
+      <div class="right-section-title">Church Notices</div>
+      <div class="notice-text">
+        ▸ <strong>Prayer Meeting</strong> — Wednesday 7:00 PM. All are welcome to gather for prayer and fellowship.<br><br>
+        ▸ <strong>Bible Study</strong> — Friday evenings. Continuing our study of the Psalms. Please bring your Bible.<br><br>
+        ▸ <strong>New Visitors</strong> — We warmly welcome you. Please greet the pastor after the service.
+      </div>
+    </div>
+
+    <div class="notice-block">
+      <div class="right-section-title">Online Offering</div>
+      <div class="offering-box">
+        <div class="offering-title">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+               stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="5" width="20" height="14" rx="2"/>
+            <line x1="2" y1="10" x2="22" y2="10"/>
+          </svg>
+          Bank Transfer
+        </div>
+        <div class="offering-row">
+          <span class="offering-label">Bank</span>
+          <span class="offering-value">Woori Bank</span>
+        </div>
+        <div class="offering-row">
+          <span class="offering-label">Account No.</span>
+          <span class="offering-value">474-08-007733</span>
+        </div>
+        <div class="offering-row">
+          <span class="offering-label">Account Name</span>
+          <span class="offering-value">Yoon Yob Park</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="notice-block">
+      <div class="right-section-title">Sermon Summary</div>
+      <div class="sermon-box">
+        <div class="sermon-label">Today's Text</div>
+        <div class="sermon-title">Psalm 126 — The Lord Restores His People</div>
+        <div class="sermon-text">
+          "When the Lord restored the fortunes of Zion, we were like those who dream." — Ps. 126:1<br><br>
+          God's restoration is beyond imagination — like dreamers who cannot believe their joy. As we sow in tears, He promises we shall reap with songs of joy. Let us bring our sorrows to Him, trusting in His faithful redemption.
+        </div>
+      </div>
+    </div>
+
+    <div class="hymn-section">
+      <div class="right-section-title">Hymn — Leaning on the Everlasting Arms (#405)</div>
+      <div class="hymn-text">
+        <p>What a fellowship, what a joy divine,<br>
+        Leaning on the everlasting arms;<br>
+        What a blessedness, what a peace is mine,<br>
+        Leaning on the everlasting arms.</p>
+        <p style="font-style:italic; color:#555; font-size:11px;">
+          Refrain: Leaning, leaning, safe and secure from all alarms;<br>
+          Leaning, leaning, leaning on the everlasting arms.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-note">May the grace of our Lord Jesus Christ be with you all.</div>
+  </div>
+
+</div>
+</body>
+</html>
