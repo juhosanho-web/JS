@@ -3,132 +3,284 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Psalm 58 — Bible English Study (NIV)</title>
+<title>Psalm 58 — Bible English Study (ESV)</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+KR:wght@300;400;500&family=Source+Serif+4:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --gold: #C9A84C;
     --gold-light: #E8D08A;
-    --parchment: #F0F4F9;
-    --parchment-dark: #D8E2EE;
-    --ink: #0A1628;
-    --ink-soft: #1A2E4A;
-    --ink-muted: #4A6080;
-    --ink-faint: #8AA0BB;
-    --burgundy: #1E4A8B;
+    --gold-dim: #8B6914;
+    --parchment: #F9F4E8;
+    --parchment-dark: #EDE4CC;
+    --ink: #1A1206;
+    --ink-soft: #3D2E0D;
+    --ink-muted: #7A6040;
+    --ink-faint: #B8A07A;
+    --burgundy: #6B1E2A;
     --teal-deep: #1A4A4A;
-    --cream: #F5F8FD;
-    --shadow: rgba(10,22,40,0.13);
-    --accent: #2563A8;
-    --accent-light: #7BAEDD;
+    --cream: #FDFAF3;
+    --shadow: rgba(26,18,6,0.15);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     background: var(--parchment);
     color: var(--ink);
     font-family: 'Source Serif 4', 'Noto Serif KR', serif;
-    min-height: 100vh; overflow-x: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
   }
   body::before {
-    content: ''; position: fixed; inset: 0;
+    content: '';
+    position: fixed; inset: 0;
     background:
-      radial-gradient(ellipse 80% 60% at 20% 0%, rgba(37,99,168,0.07) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 80% at 90% 100%, rgba(201,168,76,0.06) 0%, transparent 60%),
-      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%232563A8' fill-opacity='0.035'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      radial-gradient(ellipse 80% 60% at 20% 0%, rgba(201,168,76,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 90% 100%, rgba(107,30,42,0.06) 0%, transparent 60%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23C9A84C' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     pointer-events: none; z-index: 0;
   }
-  .app { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+  .app {
+    position: relative; z-index: 1;
+    max-width: 760px; margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
 
   /* Header */
-  header { text-align: center; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 2px solid rgba(37,99,168,0.25); position: relative; }
-  header::after { content: '✦'; position: absolute; bottom: -0.7rem; left: 50%; transform: translateX(-50%); background: var(--parchment); padding: 0 0.6rem; color: var(--accent); font-size: 14px; }
-  .header-label { font-family: 'Source Serif 4', serif; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; opacity: 0.75; }
-  .niv-badge { display: inline-block; background: var(--accent); color: #fff; font-family: 'Playfair Display', serif; font-size: 12px; letter-spacing: 0.15em; padding: 0.2rem 0.9rem; border-radius: 20px; margin-bottom: 0.75rem; }
-  h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem,5vw,2.6rem); font-weight: 700; color: var(--ink); line-height: 1.2; margin-bottom: 0.5rem; }
-  h1 em { font-style: normal; color: var(--accent); }
-  .header-sub { font-size: 14px; color: var(--ink-muted); font-family: 'Noto Serif KR', serif; font-weight: 300; }
+  header {
+    text-align: center; margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--gold-dim);
+    position: relative;
+  }
+  header::after {
+    content: '✦';
+    position: absolute; bottom: -0.65rem; left: 50%;
+    transform: translateX(-50%);
+    background: var(--parchment); padding: 0 0.6rem;
+    color: var(--gold); font-size: 14px;
+  }
+  .header-label {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11px; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--gold-dim);
+    margin-bottom: 0.6rem;
+  }
+  .esv-badge {
+    display: inline-block;
+    background: var(--gold-dim); color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 12px; letter-spacing: 0.15em;
+    padding: 0.2rem 0.9rem; border-radius: 20px;
+    margin-bottom: 0.75rem;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    font-weight: 700; color: var(--ink);
+    line-height: 1.2; margin-bottom: 0.5rem;
+  }
+  h1 em { font-style: normal; color: var(--gold-dim); }
+  .header-sub {
+    font-size: 14px; color: var(--ink-muted);
+    font-family: 'Noto Serif KR', serif; font-weight: 300;
+  }
 
   /* Tab Nav */
-  .tab-nav { display: flex; gap: 4px; background: var(--parchment-dark); padding: 4px; border-radius: 14px; margin-bottom: 2rem; border: 1px solid rgba(37,99,168,0.18); }
-  .tab-btn { flex: 1; padding: 0.6rem 0.5rem; border: none; background: transparent; border-radius: 10px; font-family: 'Noto Serif KR', serif; font-size: 13px; color: var(--ink-muted); cursor: pointer; transition: all 0.25s ease; font-weight: 400; }
-  .tab-btn.active { background: var(--cream); color: var(--ink); box-shadow: 0 2px 8px var(--shadow); font-weight: 500; }
-  .tab-btn:hover:not(.active) { color: var(--ink-soft); background: rgba(255,255,255,0.5); }
+  .tab-nav {
+    display: flex; gap: 4px;
+    background: var(--parchment-dark); padding: 4px;
+    border-radius: 14px; margin-bottom: 2rem;
+    border: 1px solid rgba(201,168,76,0.25);
+  }
+  .tab-btn {
+    flex: 1; padding: 0.6rem 0.5rem; border: none;
+    background: transparent; border-radius: 10px;
+    font-family: 'Noto Serif KR', serif; font-size: 13px;
+    color: var(--ink-muted); cursor: pointer;
+    transition: all 0.25s ease; font-weight: 400;
+  }
+  .tab-btn.active {
+    background: var(--cream); color: var(--ink);
+    box-shadow: 0 2px 8px var(--shadow); font-weight: 500;
+  }
+  .tab-btn:hover:not(.active) { color: var(--ink-soft); background: rgba(255,255,255,0.4); }
 
   /* Panels */
   .panel { display: none; animation: fadeIn 0.35s ease; }
   .panel.active { display: block; }
-  @keyframes fadeIn { from {opacity:0;transform:translateY(8px);} to {opacity:1;transform:translateY(0);} }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
 
   /* Verse Card */
-  .verse-card { background: var(--cream); border: 1px solid rgba(37,99,168,0.22); border-radius: 20px; padding: 2rem 2rem 1.75rem; position: relative; margin-bottom: 1.5rem; box-shadow: 0 4px 24px var(--shadow); }
-  .verse-card::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 80px; color: rgba(37,99,168,0.15); position: absolute; top: -10px; left: 18px; line-height: 1; }
-  .verse-ref { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; font-family: 'Source Serif 4', serif; opacity: 0.85; }
-  .verse-en { font-family: 'Source Serif 4', serif; font-size: 16px; line-height: 2; color: var(--ink-soft); margin-bottom: 1.25rem; font-weight: 400; }
-  .verse-en strong { color: var(--accent); font-weight: 700; }
-  .verse-num { font-size: 11px; font-weight: 700; color: var(--accent); vertical-align: super; margin-right: 2px; font-family: 'Source Serif 4', serif; opacity: 0.7; }
-  .verse-ko { font-family: 'Noto Serif KR', serif; font-size: 13.5px; line-height: 2; color: var(--ink-muted); border-top: 1px solid rgba(37,99,168,0.15); padding-top: 1rem; font-weight: 300; }
-  .memo-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(37,99,168,0.08); color: var(--accent); font-size: 12px; padding: 0.35rem 0.85rem; border-radius: 20px; margin-top: 1rem; font-family: 'Noto Serif KR', serif; border: 1px solid rgba(37,99,168,0.15); }
+  .verse-card {
+    background: var(--cream);
+    border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 20px; padding: 2rem 2rem 1.75rem;
+    position: relative; margin-bottom: 1.5rem;
+    box-shadow: 0 4px 24px var(--shadow);
+  }
+  .verse-card::before {
+    content: '\201C';
+    font-family: 'Playfair Display', serif; font-size: 80px;
+    color: var(--gold-light); position: absolute;
+    top: -10px; left: 18px; line-height: 1; opacity: 0.6;
+  }
+  .verse-ref {
+    font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold-dim);
+    margin-bottom: 1rem; font-family: 'Source Serif 4', serif;
+  }
+  .verse-en {
+    font-family: 'Source Serif 4', serif;
+    font-size: 16px; line-height: 2;
+    color: var(--ink-soft); margin-bottom: 1.25rem;
+    font-weight: 400;
+  }
+  .verse-en strong { color: var(--burgundy); font-weight: 700; }
+  .verse-num {
+    font-size: 11px; font-weight: 700;
+    color: var(--gold-dim); vertical-align: super;
+    margin-right: 2px; font-family: 'Source Serif 4', serif;
+  }
+  .verse-ko {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13.5px; line-height: 2; color: var(--ink-muted);
+    border-top: 1px solid rgba(201,168,76,0.2);
+    padding-top: 1rem; font-weight: 300;
+  }
+  .memo-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(107,30,42,0.08); color: var(--burgundy);
+    font-size: 12px; padding: 0.35rem 0.85rem;
+    border-radius: 20px; margin-top: 1rem;
+    font-family: 'Noto Serif KR', serif;
+    border: 1px solid rgba(107,30,42,0.12);
+  }
 
   /* TTS Bar */
-  .tts-bar { display: flex; align-items: center; gap: 10px; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid rgba(37,99,168,0.15); flex-wrap: wrap; }
-  .tts-btn { display: inline-flex; align-items: center; gap: 6px; padding: 0.45rem 1rem; border-radius: 20px; border: 1px solid rgba(37,99,168,0.3); background: rgba(37,99,168,0.06); color: var(--accent); font-family: 'Noto Serif KR', serif; font-size: 12.5px; cursor: pointer; transition: all 0.2s ease; font-weight: 400; }
-  .tts-btn:hover { background: rgba(37,99,168,0.14); border-color: var(--accent); color: var(--ink-soft); }
+  .tts-bar {
+    display: flex; align-items: center; gap: 10px;
+    margin-top: 1.25rem; padding-top: 1rem;
+    border-top: 1px solid rgba(201,168,76,0.2);
+    flex-wrap: wrap;
+  }
+  .tts-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 0.45rem 1rem; border-radius: 20px;
+    border: 1px solid rgba(201,168,76,0.4);
+    background: rgba(201,168,76,0.08); color: var(--gold-dim);
+    font-family: 'Noto Serif KR', serif; font-size: 12.5px;
+    cursor: pointer; transition: all 0.2s ease; font-weight: 400;
+  }
+  .tts-btn:hover { background: rgba(201,168,76,0.18); border-color: var(--gold); color: var(--ink-soft); }
   #btnStop { border-color: rgba(107,30,42,0.22); background: rgba(107,30,42,0.04); color: var(--ink-faint); }
-  #btnStop:hover { background: rgba(107,30,42,0.1); border-color: #6B1E2A; color: #6B1E2A; }
-  .tts-btn.playing { background: rgba(107,30,42,0.1); border-color: #6B1E2A; color: #6B1E2A; font-weight: 500; }
+  #btnStop:hover { background: rgba(107,30,42,0.1); border-color: var(--burgundy); color: var(--burgundy); }
+  .tts-btn.playing { background: rgba(107,30,42,0.12); border-color: var(--burgundy); color: var(--burgundy); font-weight: 500; }
   #btnLoop.loop-on { background: rgba(26,74,74,0.12); border-color: var(--teal-deep); color: var(--teal-deep); font-weight: 500; }
-  .loop-count-wrap { display: none; align-items: center; gap: 4px; font-family: 'Noto Serif KR', serif; font-size: 12px; }
+  .loop-count-wrap {
+    display: none; align-items: center; gap: 4px;
+    font-family: 'Noto Serif KR', serif; font-size: 12px;
+  }
   .loop-label { color: var(--ink-faint); }
-  .loop-counter { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--teal-deep); min-width: 20px; text-align: center; }
+  .loop-counter {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; font-weight: 700;
+    color: var(--teal-deep); min-width: 20px; text-align: center;
+  }
 
   /* Section Heading */
   .section-heading { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
   .section-heading h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--ink); }
-  .section-icon { width: 32px; height: 32px; border-radius: 50%; background: rgba(37,99,168,0.1); display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; border: 1px solid rgba(37,99,168,0.2); }
+  .section-icon {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(201,168,76,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; flex-shrink: 0;
+    border: 1px solid rgba(201,168,76,0.3);
+  }
   .hint-text { font-size: 12px; color: var(--ink-faint); font-family: 'Noto Serif KR', serif; margin-bottom: 1rem; font-weight: 300; }
 
   /* Word Cards */
-  .words-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px,1fr)); gap: 12px; }
-  .word-card { background: var(--cream); border: 1px solid rgba(37,99,168,0.18); border-radius: 16px; padding: 1.1rem 1.25rem; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(10,22,40,0.06); position: relative; overflow: hidden; }
-  .word-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-light)); opacity: 0; transition: opacity 0.2s; }
-  .word-card:hover { border-color: rgba(37,99,168,0.4); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(10,22,40,0.1); }
+  .words-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; }
+  .word-card {
+    background: var(--cream); border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 16px; padding: 1.1rem 1.25rem;
+    cursor: pointer; transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(26,18,6,0.06);
+    position: relative; overflow: hidden;
+  }
+  .word-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .word-card:hover { border-color: rgba(201,168,76,0.5); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(26,18,6,0.1); }
   .word-card:hover::after, .word-card.open::after { opacity: 1; }
-  .word-card.open { border-color: rgba(37,99,168,0.4); background: #F5F8FF; }
-  .word-num { font-size: 10px; color: var(--accent); font-family: 'Source Serif 4', serif; letter-spacing: 0.1em; margin-bottom: 2px; opacity: 0.6; }
+  .word-card.open { border-color: rgba(201,168,76,0.5); background: #FFFDF5; }
+  .word-num { font-size: 10px; color: var(--gold-dim); font-family: 'Source Serif 4', serif; letter-spacing: 0.1em; margin-bottom: 2px; opacity: 0.6; }
   .word-en { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
-  .word-pos { font-size: 10.5px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; font-family: 'Source Serif 4', serif; opacity: 0.75; }
+  .word-pos { font-size: 10.5px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 6px; font-family: 'Source Serif 4', serif; }
   .word-ko { font-family: 'Noto Serif KR', serif; font-size: 13px; color: var(--ink-soft); font-weight: 400; margin-bottom: 4px; }
   .word-expand { font-size: 11px; color: var(--ink-faint); font-family: 'Noto Serif KR', serif; }
-  .word-example { display: none; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(37,99,168,0.15); font-family: 'Source Serif 4', serif; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; font-weight: 400; }
+  .word-example {
+    display: none; margin-top: 10px; padding-top: 10px;
+    border-top: 1px solid rgba(201,168,76,0.2);
+    font-family: 'Source Serif 4', serif; font-size: 12.5px;
+    color: var(--ink-muted); line-height: 1.7; font-weight: 400;
+  }
   .word-example-ko { font-family: 'Noto Serif KR', serif; font-size: 12px; color: var(--ink-faint); margin-top: 4px; font-weight: 300; }
   .word-card.open .word-example { display: block; }
   .word-card.open .word-expand { display: none; }
-  .word-speak-btn { display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; padding: 0.3rem 0.7rem; border-radius: 12px; border: 1px solid rgba(37,99,168,0.28); background: transparent; color: var(--accent); font-size: 11.5px; cursor: pointer; transition: all 0.2s; font-family: 'Noto Serif KR', serif; opacity: 0.8; }
-  .word-speak-btn:hover { background: rgba(37,99,168,0.1); opacity: 1; }
-  .word-speak-btn.playing { color: #6B1E2A; border-color: #6B1E2A; background: rgba(107,30,42,0.07); opacity: 1; }
+  .word-speak-btn {
+    display: inline-flex; align-items: center; gap: 4px;
+    margin-top: 8px; padding: 0.3rem 0.7rem;
+    border-radius: 12px; border: 1px solid rgba(201,168,76,0.35);
+    background: transparent; color: var(--gold-dim);
+    font-size: 11.5px; cursor: pointer; transition: all 0.2s;
+    font-family: 'Noto Serif KR', serif;
+  }
+  .word-speak-btn:hover { background: rgba(201,168,76,0.12); color: var(--ink-soft); }
+  .word-speak-btn.playing { color: var(--burgundy); border-color: var(--burgundy); background: rgba(107,30,42,0.07); }
 
   /* Phrasal Cards */
   .phrasal-list { display: flex; flex-direction: column; gap: 14px; }
-  .phrasal-card { background: var(--cream); border: 1px solid rgba(37,99,168,0.18); border-radius: 16px; padding: 1.25rem 1.5rem; display: grid; grid-template-columns: auto 1fr; gap: 0 1.25rem; align-items: start; box-shadow: 0 2px 8px rgba(10,22,40,0.06); transition: all 0.2s ease; }
-  .phrasal-card:hover { border-color: rgba(37,99,168,0.35); box-shadow: 0 6px 20px rgba(10,22,40,0.1); }
-  .phrasal-num { font-family: 'Playfair Display', serif; font-size: 28px; color: rgba(37,99,168,0.25); font-weight: 700; line-height: 1; padding-top: 2px; min-width: 30px; }
+  .phrasal-card {
+    background: var(--cream); border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 16px; padding: 1.25rem 1.5rem;
+    display: grid; grid-template-columns: auto 1fr;
+    gap: 0 1.25rem; align-items: start;
+    box-shadow: 0 2px 8px rgba(26,18,6,0.06); transition: all 0.2s ease;
+  }
+  .phrasal-card:hover { border-color: rgba(26,74,74,0.35); box-shadow: 0 6px 20px rgba(26,18,6,0.1); }
+  .phrasal-num { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold-light); font-weight: 700; line-height: 1; padding-top: 2px; min-width: 30px; }
   .phrasal-verb { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--teal-deep); margin-bottom: 3px; }
-  .phrasal-meaning { font-size: 12px; letter-spacing: 0.1em; color: var(--accent); text-transform: uppercase; font-family: 'Source Serif 4', serif; margin-bottom: 10px; opacity: 0.8; }
+  .phrasal-meaning { font-size: 12px; letter-spacing: 0.1em; color: var(--gold-dim); text-transform: uppercase; font-family: 'Source Serif 4', serif; margin-bottom: 10px; }
   .phrasal-example { font-family: 'Source Serif 4', serif; font-size: 14px; color: var(--ink-soft); line-height: 1.75; margin-bottom: 5px; font-weight: 400; }
   .phrasal-example em { font-style: normal; font-weight: 700; color: var(--teal-deep); border-bottom: 1.5px solid rgba(26,74,74,0.3); }
   .phrasal-ko { font-family: 'Noto Serif KR', serif; font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; font-weight: 300; }
-  .phrasal-speak-btn { display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; padding: 0.3rem 0.75rem; border-radius: 12px; border: 1px solid rgba(26,74,74,0.22); background: transparent; color: var(--teal-deep); font-size: 11.5px; cursor: pointer; transition: all 0.2s; font-family: 'Noto Serif KR', serif; opacity: 0.72; }
+  .phrasal-speak-btn {
+    display: inline-flex; align-items: center; gap: 4px;
+    margin-top: 8px; padding: 0.3rem 0.75rem;
+    border-radius: 12px; border: 1px solid rgba(26,74,74,0.25);
+    background: transparent; color: var(--teal-deep);
+    font-size: 11.5px; cursor: pointer; transition: all 0.2s;
+    font-family: 'Noto Serif KR', serif; opacity: 0.75;
+  }
   .phrasal-speak-btn:hover { opacity: 1; background: rgba(26,74,74,0.07); }
   .phrasal-speak-btn.playing { opacity: 1; background: rgba(26,74,74,0.12); }
 
-  /* Learn Box */
-  .learn-box { background: var(--cream); border: 1px solid rgba(37,99,168,0.18); border-radius: 16px; padding: 1.25rem 1.5rem; box-shadow: 0 2px 8px rgba(10,22,40,0.06); font-family: 'Noto Serif KR', serif; font-size: 14px; color: var(--ink-soft); line-height: 2.1; font-weight: 300; }
+  /* Learning Point */
+  .learn-box {
+    background: var(--cream); border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 16px; padding: 1.25rem 1.5rem;
+    box-shadow: 0 2px 8px rgba(26,18,6,0.06);
+    font-family: 'Noto Serif KR', serif; font-size: 14px;
+    color: var(--ink-soft); line-height: 2.1; font-weight: 300;
+  }
   .learn-box strong { color: var(--ink); font-weight: 500; }
-  .learn-box span.hl { color: var(--accent); font-weight: 400; }
+  .learn-box span.hl { color: var(--burgundy); font-weight: 400; }
 
   /* Footer */
-  footer { text-align: center; margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(37,99,168,0.15); }
-  .footer-ornament { font-family: 'Playfair Display', serif; font-size: 22px; color: rgba(37,99,168,0.3); letter-spacing: 0.3em; margin-bottom: 0.5rem; }
+  footer { text-align: center; margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(201,168,76,0.2); }
+  .footer-ornament { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--gold-light); letter-spacing: 0.3em; margin-bottom: 0.5rem; }
   .footer-text { font-size: 12px; color: var(--ink-faint); font-family: 'Noto Serif KR', serif; font-weight: 300; }
 
   /* Responsive */
@@ -153,9 +305,9 @@
 
   <header>
     <div class="header-label">Weekly Bible English Study · May 4, 2025</div>
-    <div class="niv-badge">NIV</div>
+    <div class="esv-badge">ESV</div>
     <h1>Psalm <em>58</em></h1>
-    <p class="header-sub">Memorization · Top 10 Vocabulary · Phrasal Verbs — Master in One Go</p>
+    <p class="header-sub">Memorization · Vocabulary · Phrasal Verbs — Master in One Go</p>
   </header>
 
   <nav class="tab-nav">
@@ -167,17 +319,16 @@
   <!-- Panel 1: Verse -->
   <div id="panel-verse" class="panel active">
     <div class="verse-card">
-      <div class="verse-ref">Psalm 58:10–11 (NIV) — This Week's Memory Verse</div>
+      <div class="verse-ref">Psalm 58:10–11 (ESV) — This Week's Memory Verse</div>
       <div class="verse-en">
-        <span class="verse-num">10</span>The <strong>righteous</strong> will be <strong>glad</strong> when they are <strong>avenged</strong>,<br>
-        when they <strong>dip</strong> their feet in the blood of the wicked.<br>
-        <span class="verse-num">11</span>Then people will say,<br>
-        "Surely the righteous still are <strong>rewarded</strong>;<br>
-        surely there is a God who <strong>judges</strong> the earth."
+        <span class="verse-num">10</span>The <strong>righteous</strong> will <strong>rejoice</strong> when he sees the <strong>vengeance</strong>;<br>
+        he will bathe his feet in the blood of the wicked.<br>
+        <span class="verse-num">11</span>Mankind will say, "Surely there is a <strong>reward</strong> for the righteous;<br>
+        surely there is a God who <strong>judges</strong> on earth."
       </div>
       <div class="verse-ko">
-        <strong style="color:var(--accent);font-size:11px;opacity:0.7;">10</strong> 의인이 보복하심을 보고 기뻐함이여 그의 발을 악인의 피에 씻으리로다<br>
-        <strong style="color:var(--accent);font-size:11px;opacity:0.7;">11</strong> 그 때에 사람의 말이 진실로 의인에게 갚음이 있고 진실로 땅에서 심판하시는 하나님이 계시다 하리로다
+        <strong style="color:var(--gold-dim);font-size:11px;">10</strong> 의인이 보복하심을 보고 기뻐함이여 그의 발을 악인의 피에 씻으리로다<br>
+        <strong style="color:var(--gold-dim);font-size:11px;">11</strong> 그 때에 사람의 말이 진실로 의인에게 갚음이 있고 진실로 땅에서 심판하시는 하나님이 계시다 하리로다
       </div>
       <div class="tts-bar">
         <button class="tts-btn" id="btnPlayFull" onclick="speakVerse(1.0)">
@@ -200,7 +351,7 @@
       </div>
     </div>
     <div style="text-align:center;">
-      <span class="memo-badge">✦ Highlighted words = Top 10 Key Vocabulary this week</span>
+      <span class="memo-badge">✦ Highlighted words = Top Key Vocabulary this week</span>
     </div>
     <div style="margin-top:2rem;">
       <div class="section-heading">
@@ -208,18 +359,18 @@
         <h2>Study Notes</h2>
       </div>
       <div class="learn-box">
-        This psalm is <strong>David's</strong> cry against the injustice of the wicked, expressing his firm confidence in God's righteous judgment.<br>
-        NIV uses <strong>be glad</strong> instead of ESV's <span class="hl">rejoice</span>, and <strong>avenged</strong> instead of <span class="hl">vengeance</span>, giving it a more conversational tone.<br>
-        <strong>"Surely"</strong> is repeated twice to emphasize David's unwavering conviction in God's justice, and <strong>"still are rewarded"</strong> affirms that God's reward is present and ongoing.
+        This psalm is <strong>David's</strong> cry against the injustice of the wicked, declaring his confidence that God will vindicate the righteous and judge the wicked.<br>
+        ESV's key words <strong>rejoice · vengeance · reward · judges</strong> vividly portray God's righteous rule over all the earth.<br>
+        <strong>"Surely"</strong> is repeated twice, powerfully expressing David's unwavering conviction in God's perfect justice.
       </div>
     </div>
   </div>
 
-  <!-- Panel 2: Words (10개) -->
+  <!-- Panel 2: Words -->
   <div id="panel-words" class="panel">
     <div class="section-heading">
       <div class="section-icon">📚</div>
-      <h2>Psalm 58 — Top <span style="color:var(--accent);">10</span> Key Words</h2>
+      <h2>Psalm 58 — Top <span style="color:var(--gold-dim);">10</span> Key Words</h2>
     </div>
     <p class="hint-text">Tap each card to expand examples · Click 🔊 to hear pronunciation ✦</p>
     <div class="words-grid" id="wordsGrid"></div>
@@ -237,12 +388,12 @@
 
   <footer>
     <div class="footer-ornament">✦ ✦ ✦</div>
-    <p class="footer-text">Psalm 58 Bible English Study Card (NIV) · Growing in God's Word and English every week</p>
+    <p class="footer-text">Psalm 58 Bible English Study Card (ESV) · Growing in God's Word and English every week</p>
   </footer>
 </div>
 
 <script>
-const VERSE_TEXT = "The righteous will be glad when they are avenged, when they dip their feet in the blood of the wicked. Then people will say, Surely the righteous still are rewarded; surely there is a God who judges the earth.";
+const VERSE_TEXT = "The righteous will rejoice when he sees the vengeance; he will bathe his feet in the blood of the wicked. Mankind will say, Surely there is a reward for the righteous; surely there is a God who judges on earth.";
 
 // ── TTS Engine ──
 let isLooping = false, loopCount = 0, isSpeaking = false, currentRate = 1.0;
@@ -308,7 +459,7 @@ function stopSpeak() {
   document.querySelectorAll('.word-speak-btn,.phrasal-speak-btn').forEach(b => b.classList.remove('playing'));
   const btn = document.getElementById('btnLoop');
   btn.classList.remove('loop-on');
-  btn.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>반복 OFF`;
+  btn.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>Repeat OFF`;
   document.getElementById('loopCountWrap').style.display = 'none';
   document.getElementById('loopCounter').textContent = '0';
 }
@@ -332,24 +483,24 @@ window.speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
 
 
 const wordData = [
-  {en:"righteous",pos:"adjective",ko:"의로운 · 올바른",ex1en:"Surely the righteous still are rewarded.",ex1ko:"분명히 의인은 여전히 상을 받는다. (NIV 58:11 직결)",ex2en:"A righteous life may face hardship, but its eternal reward never fades.",ex2ko:"의로운 삶은 어려움을 겪을 수 있지만 그 영원한 상급은 결코 사라지지 않는다."},
-  {en:"glad",pos:"adjective",ko:"기쁜 · 기뻐하는",ex1en:"The righteous will be glad when they are avenged.",ex1ko:"의인은 복수를 당할 때 기뻐할 것이다. (NIV 58:10 직결)",ex2en:"I am glad whenever truth and justice finally prevail over evil.",ex2ko:"진실과 정의가 마침내 악 위에 승리할 때마다 나는 기쁩니다."},
-  {en:"avenge",pos:"verb",ko:"복수하다 · 원수를 갚다",ex1en:"The righteous will be glad when they are avenged by God.",ex1ko:"의인은 하나님이 원수를 갚아주실 때 기뻐한다. (NIV 58:10)",ex2en:"God promises to avenge His people against every form of injustice.",ex2ko:"하나님은 모든 형태의 불의에 대해 그의 백성의 원수를 갚겠다고 약속하신다."},
-  {en:"dip",pos:"verb",ko:"담그다 · 살짝 적시다",ex1en:"When they dip their feet in the blood of the wicked.",ex1ko:"그들이 악인의 피에 발을 담글 때. (NIV 58:10 직결)",ex2en:"He dipped his hand into the cool water to test its temperature.",ex2ko:"그는 온도를 확인하려고 시원한 물에 손을 살짝 담갔다."},
-  {en:"wicked",pos:"adjective / noun",ko:"악한 · 사악한 / 악인",ex1en:"The wicked will face the full force of God's righteous justice.",ex1ko:"악인들은 하나님의 의로운 정의의 심판을 온전히 맞이할 것이다.",ex2en:"The path of the wicked leads only to destruction, ruin, and regret.",ex2ko:"악인의 길은 오직 멸망과 파멸과 후회로만 이어진다."},
-  {en:"surely",pos:"adverb",ko:"분명히 · 틀림없이",ex1en:"Surely the righteous still are rewarded on earth.",ex1ko:"분명히 의인은 이 땅에서 여전히 상을 받는다. (NIV 58:11)",ex2en:"Surely goodness and love will follow me all the days of my life.",ex2ko:"분명히 선하심과 사랑이 내 평생의 모든 날 나를 따를 것이다."},
-  {en:"reward",pos:"noun / verb",ko:"상 · 보상 / 보상하다",ex1en:"Surely the righteous still are rewarded by God.",ex1ko:"분명히 의인은 하나님께 여전히 상을 받는다. (NIV 58:11 직결)",ex2en:"God rewards those who diligently and earnestly seek Him with their whole heart.",ex2ko:"하나님은 온 마음으로 부지런히 진심으로 그분을 찾는 자들에게 상을 주신다."},
-  {en:"judge",pos:"verb",ko:"심판하다 · 판단하다",ex1en:"Surely there is a God who judges the earth.",ex1ko:"분명 이 땅을 심판하시는 하나님이 계신다. (NIV 58:11 직결)",ex2en:"God will judge every deed and every word, including every hidden thing.",ex2ko:"하나님은 모든 은밀한 것을 포함하여 모든 행위와 말을 심판하실 것이다."},
-  {en:"still",pos:"adverb",ko:"여전히 · 아직도",ex1en:"The righteous still are rewarded, even in difficult times.",ex1ko:"의인은 어려운 시기에도 여전히 상을 받는다.",ex2en:"Even in the darkest hour, God is still faithful and still powerfully at work.",ex2ko:"가장 어두운 시간에도 하나님은 여전히 신실하시고 여전히 강력하게 일하고 계신다."},
-  {en:"people",pos:"noun",ko:"사람들 · 인류",ex1en:"Then people will say, Surely there is a God who judges.",ex1ko:"그 때에 사람들이 말할 것이다, 심판하시는 하나님이 계신다고. (NIV 58:11)",ex2en:"When people witness God's perfect justice, they cannot deny His presence.",ex2ko:"사람들이 하나님의 완전한 정의를 목격할 때 그들은 그분의 임재를 부정할 수 없다."},
+  {en:"righteous",pos:"adjective",ko:"의로운 · 올바른",ex1en:"The righteous will rejoice when he sees the vengeance.",ex1ko:"의인은 보복을 볼 때 기뻐할 것이다. (ESV 58:10 직결)",ex2en:"The righteous person walks in integrity and truth every day.",ex2ko:"의로운 사람은 매일 성실함과 진실 안에서 행한다."},
+  {en:"rejoice",pos:"verb",ko:"기뻐하다 · 크게 기뻐하다",ex1en:"The righteous will rejoice when justice is served.",ex1ko:"정의가 실현될 때 의인은 기뻐할 것이다.",ex2en:"Rejoice always, for God is in control of all things.",ex2ko:"항상 기뻐하라, 하나님이 모든 것을 주관하시기 때문이다."},
+  {en:"vengeance",pos:"noun",ko:"복수 · 보복 · 응징",ex1en:"Vengeance belongs to God alone, not to mankind.",ex1ko:"보복은 사람이 아닌 하나님께만 속한 것이다.",ex2en:"The Lord's vengeance is perfectly timed and completely just.",ex2ko:"주님의 응징은 완벽하게 때를 맞추고 완전히 공정하다."},
+  {en:"bathe",pos:"verb",ko:"씻다 · (피·물에) 적시다",ex1en:"He will bathe his feet in the blood of the wicked.",ex1ko:"그는 악인의 피에 발을 씻을 것이다. (ESV 58:10 직결)",ex2en:"She bathed the wound carefully in clean water every morning.",ex2ko:"그녀는 매일 아침 깨끗한 물로 상처를 조심스럽게 씻었다."},
+  {en:"wicked",pos:"adjective / noun",ko:"악한 · 사악한 / 악인",ex1en:"The wicked will face the full consequences of their deeds.",ex1ko:"악인들은 자신의 행위의 결과를 온전히 맞이할 것이다.",ex2en:"God sees the ways of the wicked and will judge them all.",ex2ko:"하나님은 악인의 길을 보시고 그들 모두를 심판하실 것이다."},
+  {en:"mankind",pos:"noun",ko:"인류 · 사람들",ex1en:"Mankind will say, Surely there is a God who judges on earth.",ex1ko:"사람들이 말할 것이다, 분명 이 땅에서 심판하시는 하나님이 계신다고.",ex2en:"Mankind has always longed for justice, but only God provides it fully.",ex2ko:"인류는 항상 정의를 갈망해 왔지만 오직 하나님만이 그것을 완전히 제공하신다."},
+  {en:"surely",pos:"adverb",ko:"분명히 · 틀림없이",ex1en:"Surely there is a reward for the righteous on earth.",ex1ko:"분명히 이 땅에서 의인에게는 상급이 있다. (ESV 58:11)",ex2en:"Surely God's goodness and mercy will follow me all the days of my life.",ex2ko:"분명히 하나님의 선하심과 자비가 내 평생 나를 따를 것이다."},
+  {en:"reward",pos:"noun",ko:"상 · 보상 · 상급",ex1en:"Surely there is a reward for the righteous.",ex1ko:"분명히 의인에게는 상급이 있다. (ESV 58:11 직결)",ex2en:"The reward for a faithful life is greater than anything we can imagine.",ex2ko:"신실한 삶에 대한 상급은 우리가 상상할 수 있는 어떤 것보다 크다."},
+  {en:"judge",pos:"verb",ko:"심판하다 · 판단하다",ex1en:"Surely there is a God who judges on earth.",ex1ko:"분명 이 땅에서 심판하시는 하나님이 계신다. (ESV 58:11 직결)",ex2en:"God judges not by appearances but by the intentions of the heart.",ex2ko:"하나님은 외모로 심판하지 않으시고 마음의 의도로 심판하신다."},
+  {en:"avenge",pos:"verb",ko:"복수하다 · 원수를 갚다",ex1en:"God will avenge the righteous and punish the wicked in His time.",ex1ko:"하나님은 그분의 때에 의인의 원수를 갚으시고 악인을 심판하신다.",ex2en:"Do not avenge yourselves, but leave room for the wrath of God.",ex2ko:"스스로 원수를 갚지 말고 하나님의 진노하심에 맡기라."},
 ];
 
 const phrasalData = [
-  {verb:"stand up for",meaning:"옹호하다 · 지지하다",ex1en:"Always <em>stand up for</em> what is righteous, even when it costs you.",ex1ko:"의로운 것을 위해서라면 대가가 따르더라도 항상 옹호하세요.",ex2en:"She bravely <em>stood up for</em> those who could not speak for themselves.",ex2ko:"그녀는 스스로 말할 수 없는 사람들을 용감하게 옹호했습니다."},
-  {verb:"give in",meaning:"굴복하다 · 포기하다",ex1en:"Do not <em>give in</em> to wickedness — the righteous will still be rewarded.",ex1ko:"악함에 굴복하지 마세요 — 의인은 여전히 상을 받습니다.",ex2en:"He never <em>gave in</em> to fear, even under the most overwhelming pressure.",ex2ko:"가장 압도적인 압박 아래서도 그는 결코 두려움에 굴복하지 않았습니다."},
-  {verb:"carry out",meaning:"수행하다 · 집행하다",ex1en:"God will <em>carry out</em> His perfect justice for the righteous in due time.",ex1ko:"하나님은 때가 되면 의인을 위해 그분의 완전한 정의를 집행하실 것입니다.",ex2en:"We must faithfully <em>carry out</em> every duty with honesty and full integrity.",ex2ko:"우리는 정직함과 완전한 성실함으로 모든 의무를 신실하게 수행해야 합니다."},
-  {verb:"look up to",meaning:"우러러보다 · 존경하다",ex1en:"People will <em>look up to</em> God when they see His righteous and perfect judgment.",ex1ko:"사람들은 하나님의 의롭고 완전한 심판을 볼 때 그분을 우러러볼 것입니다.",ex2en:"Young students naturally <em>look up to</em> teachers who truly live what they teach.",ex2ko:"어린 학생들은 자신이 가르치는 것을 진정으로 삶으로 사는 선생님을 자연스럽게 존경합니다."},
-  {verb:"hold on",meaning:"버티다 · 견디다",ex1en:"<em>Hold on</em> to your faith — surely God still rewards those who trust Him.",ex1ko:"믿음을 붙드세요 — 분명히 하나님은 그분을 신뢰하는 자들에게 여전히 상을 주십니다.",ex2en:"<em>Hold on</em> through every storm — God has never forgotten you and never will.",ex2ko:"모든 폭풍을 견디세요 — 하나님은 당신을 결코 잊지 않으셨고 앞으로도 결코 잊지 않으실 것입니다."},
+  {verb:"stand up for",meaning:"옹호하다 · 지지하다",ex1en:"Always <em>stand up for</em> what is righteous, even when it is difficult.",ex1ko:"의로운 것을 위해서라면 어려울 때도 항상 옹호하세요.",ex2en:"She <em>stood up for</em> the weak and the voiceless when no one else would.",ex2ko:"아무도 나서지 않을 때 그녀는 약하고 목소리 없는 자들을 옹호했습니다."},
+  {verb:"give in",meaning:"굴복하다 · 포기하다",ex1en:"Do not <em>give in</em> to wickedness — the righteous will be rewarded.",ex1ko:"악함에 굴복하지 마세요 — 의인은 반드시 상을 받습니다.",ex2en:"He refused to <em>give in</em> to pressure and kept his integrity to the end.",ex2ko:"그는 압박에 굴복하기를 거부하고 끝까지 성실함을 지켰습니다."},
+  {verb:"carry out",meaning:"수행하다 · 집행하다",ex1en:"God will <em>carry out</em> justice for the righteous in His perfect timing.",ex1ko:"하나님은 그분의 완전한 때에 의인을 위해 정의를 집행하실 것입니다.",ex2en:"We must faithfully <em>carry out</em> our responsibilities with honesty and care.",ex2ko:"우리는 정직함과 성실함으로 우리의 책임을 신실하게 수행해야 합니다."},
+  {verb:"look up to",meaning:"우러러보다 · 존경하다",ex1en:"People will <em>look up to</em> God when they witness His righteous judgment.",ex1ko:"사람들은 하나님의 의로운 심판을 목격할 때 그분을 우러러볼 것입니다.",ex2en:"Children naturally <em>look up to</em> people who live with integrity and courage.",ex2ko:"아이들은 성실함과 용기로 사는 사람들을 자연스럽게 존경합니다."},
+  {verb:"hold on",meaning:"버티다 · 견디다",ex1en:"<em>Hold on</em> to your faith — surely God rewards those who seek Him.",ex1ko:"믿음을 붙드세요 — 분명히 하나님은 그분을 찾는 자들에게 상을 주십니다.",ex2en:"<em>Hold on</em> through every storm — your breakthrough is already on the way.",ex2ko:"모든 폭풍을 견디세요 — 당신의 돌파구는 이미 오는 중입니다."},
 ];
 
 
@@ -417,7 +568,7 @@ phrasalData.forEach((p, i) => {
   list.appendChild(card);
 });
 
-function switchTab(name,btn){
+function switchTab(name,btn) {
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('panel-'+name).classList.add('active');
